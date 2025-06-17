@@ -1,0 +1,196 @@
+:root {
+    --primary-color: #4361ee;
+    --secondary-color: #3f37c9;
+    --accent-color: #4895ef;
+    --light-color: #f8f9fa;
+    --dark-color: #212529;
+    --success-color: #4cc9f0;
+    --warning-color: #f72585;
+    --text-color: #2b2d42;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    padding: 40px 20px;
+    font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    color: var(--text-color);
+}
+
+/* Container do formulário */
+.form-container {
+    background-color: white;
+    border-radius: var(--border-radius);
+    padding: 40px;
+    box-shadow: var(--box-shadow);
+    margin: 0 auto;
+    max-width: 800px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.85);
+}
+
+/* Cabeçalho do formulário */
+.form-header {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.form-header h2 {
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+    font-size: 2rem;
+}
+
+.form-header p {
+    color: var(--text-color);
+    font-size: 1.1rem;
+    opacity: 0.8;
+}
+
+.form-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+    width: 50%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    border-radius: 3px;
+}
+
+/* Seções do formulário */
+.form-section {
+    margin-bottom: 30px;
+    padding: 25px;
+    background-color: rgba(248, 249, 250, 0.5);
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--accent-color);
+}
+
+.form-section h5 {
+    color: var(--secondary-color);
+    margin-bottom: 25px;
+    font-weight: 600;
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+}
+
+.form-section h5::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--warning-color);
+    margin-right: 10px;
+}
+
+/* Campos do formulário */
+.form-label {
+    font-weight: 500;
+    margin-bottom: 8px;
+    display: block;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.required-field::after {
+    content: " *";
+    color: var(--warning-color);
+}
+
+.form-control, .form-select {
+    border: 2px solid #e9ecef;
+    border-radius: var(--border-radius);
+    padding: 12px 15px;
+    transition: all 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(72, 149, 239, 0.25);
+    outline: none;
+    background-color: white;
+}
+
+/* Botão personalizado */
+.btn-custom {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    font-weight: 600;
+    padding: 14px;
+    border: none;
+    border-radius: var(--border-radius);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 1rem;
+    box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+}
+
+.btn-custom:hover {
+    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(67, 97, 238, 0.4);
+    color: white;
+}
+
+.btn-custom:active {
+    transform: translateY(0);
+}
+
+/* Texto de ajuda */
+.text-muted {
+    font-size: 0.85rem;
+    color: #6c757d;
+    margin-top: 5px;
+    font-style: italic;
+}
+
+/* Efeitos especiais */
+input:not(:placeholder-shown) {
+    background-color: rgba(72, 149, 239, 0.05) !important;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .form-container {
+        padding: 25px;
+    }
+    
+    .form-header h2 {
+        font-size: 1.7rem;
+    }
+    
+    .form-section {
+        padding: 20px 15px;
+    }
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.form-container {
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+.form-section {
+    opacity: 0;
+    animation: fadeIn 0.4s ease-out forwards;
+    animation-delay: 0.2s;
+}
+
+.form-section:nth-child(2) {
+    animation-delay: 0.3s;
+}
